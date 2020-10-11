@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!m6a(u2m(n$dv)uh%u1e71b0wtt%(j)!-yk)@hurjx8&k4y2ts'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'dv-bookstore.herokuapp.com', 'dasariveera-bookstore.herokuapp.com']
 
