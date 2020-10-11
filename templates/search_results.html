@@ -21,7 +21,7 @@
                 <a class="btn btn-outline-success" href="{% url 'read' book.id %}">Read</a>
 
                 {% else %}
-                <a class="btn btn-outline-success" href="{% url 'add_to_cart' book.id %}">Add to Cart</a>
+                <a class="btn btn-outline-success" href="{% url 'add_to_cart' "addition" book.id %}">Add to Cart</a>
                 <a class="btn btn-outline-success" href="{% url 'book-detail' book.id %}">View</a>
                 {% endif %}
                 <h4 style="display:inline-block;float:right">₹{{book.price}}</h4>

@@ -15,7 +15,7 @@
                         <a class="btn btn-outline-success" href="{% url 'read' book.id %}">Read</a>
         
                     {% else %}
-                        <a class="btn btn-outline-success" href="{% url 'add_to_cart' book.id %}">Add to Cart</a>
+                        <a class="btn btn-outline-success" href="{% url 'add_to_cart' "addition" book.id %}">Add to Cart</a>
                         <a class="btn btn-outline-success" href="{% url 'book-list' %}">Go Back</a>
 
                     {% endif %}
