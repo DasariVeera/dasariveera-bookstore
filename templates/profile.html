@@ -1,0 +1,18 @@
+{% extends  '_base.html' %}
+
+{% block title %}My profile {% endblock title %}
+
+{% block cartvalue %}{{order.get_total_cart_items}}{% endblock cartvalue %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Hello <span class="text-primary">{{user}}!</span></h2>
+            <h3>Have Happy Reading</h3>
+        </div>
+        
+    </div>
+</div>
+    
+{% endblock content %}

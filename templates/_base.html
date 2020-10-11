@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BookStore {% endblock title %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+          <div class="container">
+            <a class="navbar-brand mr-4" href="{% url 'book-list' %}">DV BookStore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+              </div>
+              <!-- Navbar Right Side -->
+              {% if user.is_authenticated %}
+              <div class="navbar-nav">
+                <form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
+                <input name="search_value" class="form-control mr-sm-2" type="text" placeholder="Search"
+                aria-label="Search">
+                </form>
+                <div class="cont">
+                  <img class="icon" src="../static/images/cart-image.png" alt="cart">
+                  <p class="center"><a class="nav-item nav-link li" href="{% url 'checkout' %}">{% block cartvalue %}0{% endblock cartvalue %}</a></p>
+                </div>
+                
+                <a class="nav-item nav-link" href="{% url 'completed_orders' %}">Orders</a>
+                <!-- <a class="nav-item nav-link" href="{% url 'about' %}"><img src="../static/images/cart-image.png" alt="aa" style="height: 30px;">1</a> -->
+                
+                
+                <!-- <a class="nav-item nav-link" style="background-image: url('../static/images/cart-image.png');" href="{% url 'about' %}"></a> -->
+                <a class="nav-item nav-link" href="{% url 'profile' %}">profile</a>
+
+                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+              </div>
+              {% else %}
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-item nav-link" href="{% url 'sign-up' %}">Sign Up</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      </div>
+    {% block content %}
+    {% endblock content %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

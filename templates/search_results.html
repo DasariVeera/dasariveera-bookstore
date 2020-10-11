@@ -1,0 +1,43 @@
+{% extends '_base.html' %}
+
+{% block title %}Book-Store {% endblock title %}
+
+{% block cartvalue %}{{order.get_total_cart_items}}{% endblock cartvalue %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      {% if books %}
+      {% for book in books %}
+        <div class="col-lg-4">
+          
+            <img class="thumbnail" src="{{book.image.url}}" alt="aa">
+            <div class="box-element product">
+                <h6><strong>Book</strong></h6>
+                <hr>
+                
+                <!-- <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button> -->
+                {% if book.id in books_bought %}
+                <a class="btn btn-outline-success" href="{% url 'read' book.id %}">Read</a>
+
+                {% else %}
+                <a class="btn btn-outline-success" href="{% url 'add_to_cart' book.id %}">Add to Cart</a>
+                <a class="btn btn-outline-success" href="{% url 'book-detail' book.id %}">View</a>
+                {% endif %}
+                <h4 style="display:inline-block;float:right">₹{{book.price}}</h4>
+            </div>
+            <br>
+            <br>   
+            
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-md-12 text-center">
+            <h3 class="text-primary">Please Type either Book title or Book author...</h3>
+        </div>
+        {% endif %}
+    </div>
+  </div>
+    
+
+{% endblock content %}

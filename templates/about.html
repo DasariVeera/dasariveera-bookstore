@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}About-DV BookStore {% endblock title %}
+
+{% if user.is_authenticated %}
+{% block cartvalue %}{{order.get_total_cart_items}}{% endblock cartvalue %}
+{%  endif %}
+
+{% block content %}
+   <h1 style="color: crimson;">We Help You Read!!</h1>
+      <h4>U r at right place for all type of Books!</h4>
+      <h2 style="color: crimson;">Happy Reading!!</h2>
+{% endblock content %}

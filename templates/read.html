@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block title %}Read {% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <embed src="../static/img/Django for Professionals Production Websites with Python  Django by William S. Vincent (z-lib.org).pdf#toolbar=0" type="application/pdf" height="500" width="500"> -->
+        <embed src="{{book.pdf.url}}#toolbar=0" type="application/pdf" height="800" width="100%">
+      </div>
+    </div>
+  </div>
+{% endblock content %}

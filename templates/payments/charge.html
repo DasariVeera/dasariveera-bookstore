@@ -1,0 +1,8 @@
+{% extends '_base.html' %}
+
+{% block title %}Charge{% endblock title %}
+
+{% block content %}
+    <h2>Your Order is successful!.. Goto
+    <a href="{% url 'completed_orders' %}">Your orders</a>.</h2>
+{% endblock content %}

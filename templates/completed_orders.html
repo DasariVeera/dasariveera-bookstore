@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+
+{% block title %}My Orders {% endblock title %}
+
+{% block cartvalue %}{{order.get_total_cart_items}}{% endblock cartvalue %}
+
+{% block content %}
+    <div class="container">
+        {% for item in orderItems %}
+        <div class="row  align-items-center">
+            <div class="col-md-6">
+                <img class="checkout-thumbnail" src="{{item.book.image.url}}" alt="{{item.book.title}}">
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-success" href="{% url 'read' item.book.id %}">Read</a>
+            </div>
+            <div class="col-md-3">
+                <h4>{{item.order.date_of_order}}</h4>
+            </div>
+            
+        </div>
+        <br>
+            <br>
+        {% endfor %}
+    </div>
+    <hr>
+{% endblock %}

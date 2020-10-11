@@ -1,0 +1,57 @@
+{% extends '_base.html' %}
+
+
+{% block title %}Checkout {% endblock title %}
+
+{% block cartvalue %}{{order.get_total_cart_items}}{% endblock cartvalue %}
+
+
+{% block content %}
+<div>
+  {% if orderItems %}
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+          
+            <h1 class="text-success">Orders page</h1>
+            <p>Buy for ₹{{order.get_total_cart_price}}</p>
+
+            <form action="{% url 'charge' %}" method="post">
+                {% csrf_token %}
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ stripe_key }}"
+                    data-description="All Books"
+                    data-amount={% widthratio order.get_total_cart_price 1 100 %}
+                    data-locale="auto">
+                </script>
+            </form>
+        </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3 class="text-danger">No Orders Pending!!</h3>
+        </div>
+        <div class="col-md-12 text-center">
+            <a class="btn btn-primary" href="{% url 'book-list' %}">Order Now</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
