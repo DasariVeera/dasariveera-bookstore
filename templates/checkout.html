@@ -18,10 +18,10 @@
             <img class="checkout-thumbnail" src="{{item.book.image.url}}" alt="aa">
             </div>
             <div class="col-md-1 text-center my-auto operators">
-              <a class="btn btn-sm btn-warning py-0" style="font-size: 0.8em;" href="{% url 'add_to_cart' "remove" item.book.id %}">+</a>
+              <a class="btn btn-sm btn-warning py-0" style="font-size: 0.8em;" href="{% url 'add_to_cart' "remove" item.book.id %}">-</a>
             </div>
             <div class="col-md-1 text-center my-auto operators">
-              <a class="btn btn-sm btn-danger py-0" style="font-size: 0.8em;" href="{% url 'add_to_cart' "delete" item.book.id %}">+</a>
+              <a class="btn btn-sm btn-danger py-0" style="font-size: 0.8em;" href="{% url 'add_to_cart' "delete" item.book.id %}">x</a>
             </div>
             <div class="col-md-1 text-center my-auto operators">
               <a class="btn btn-sm btn-success py-0" style="font-size: 0.8em;" href="{% url 'add_to_cart' "add" item.book.id %}">+</a>
