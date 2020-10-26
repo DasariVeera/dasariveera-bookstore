@@ -1,15 +1,22 @@
 {% extends '_base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %}{% block content %}
+<div class="cotainer">
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <div style="width: 400px;" class="mt-3 ml-5 mr-5">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div>
+                        {{form|crispy}}
+                    </div>
+                    <button class="btn btn-outline-warning"  name="button" type="submit">Sign UP</button>
+                </form>
+                <div class="border-top pt-3">
+                    <h5>Alredy have an account ?  <a href="{% url 'login' %}">Log In</a></h5>
+                </div>
 
-{% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        <div>
-            {{form|crispy}}
+            </div>
         </div>
-        <button name="button" type="submit">Sign UP</button>
-    </form>
-    <div class="border-top pt-3">
-        <h5>Alredy have an account ?<a href="{% url 'login' %}">Log In</a></h5>
     </div>
+</div>
 {% endblock content %}
