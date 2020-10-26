@@ -10,7 +10,6 @@ urlpatterns = [
      path('books/<int:pk>/', read, name="read"),
      path('books/<pk>', detail, name="book-detail"),
      path('books/<str:operation>/<pk>', add_to_cart, name="add_to_cart"),
-     path('books/add_to_cart_ajax/', add_to_cart_ajax, name="add_to_cart_ajax"),
      path('user', profile, name="profile"),
 
      # wrong url handling
