@@ -140,3 +140,11 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 # Stripe
 STRIPE_TEST_PUBLISHABLE_KEY='pk_test_51HaJFKKyPSDGR9UFLOVMgdK838Xjml3fpS2IOZIqMx7BX7FBxPORlqZGhYWbodLy51l6qmaRVW23UInRxzCXAQjL00wibSyRz2'
 STRIPE_TEST_SECRET_KEY='sk_test_51HaJFKKyPSDGR9UF4ja2M6PcIjbkfLBWMvata4pI8fygwYAC3MeI8v16mvm0M3KzPzEsdmEh6rzR1y7fTaHAyuF600ba449t2r'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "veeratechsmart@gmail.com" 
+EMAIL_HOST_PASSWORD = "smartveera"
