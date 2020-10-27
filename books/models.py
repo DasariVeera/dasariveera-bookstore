@@ -24,6 +24,11 @@ class Order(models.Model):
         order_items = self.orderitem_set.all()
         total = sum([item.quantity for item in order_items])
         return total
+    @property
+    def get_current_cart_items(self):
+        order_items = self.orderitem_set.all()
+        current_cart_items = [item.book.id for item in order_items]
+        return current_cart_items
     
     @property
     def get_total_cart_price(self):
