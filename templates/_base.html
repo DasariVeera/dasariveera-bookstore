@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/cart-image.png' %}">
     <title>{% block title %}BookStore {% endblock title %}</title>
-    <link rel="shortcut icon" type="image/png" href="../static/images/cart-image.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
@@ -49,7 +49,7 @@
                 aria-label="Search">
                 </form>
                 <div class="cont">
-                  <img class="icon" src="../static/images/cart-image.png" alt="cart">
+                  <img class="icon" src="{% static 'images/cart-image.png' %}" alt="cart">
                   <p class="center"><a class="nav-item nav-link li" href="{% url 'checkout' %}">{% block cartvalue %}0{% endblock cartvalue %}</a></p>
                 </div>
                 
