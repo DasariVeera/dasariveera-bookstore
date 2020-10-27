@@ -7,7 +7,22 @@
 {% block content %}
   <div class="container">
     <div class="row">
+      
       {% for book in books %}
+        {% if book.id in books_bought %}
+        <div class="col-lg-4">
+          <img class="thumbnail" src="{{book.image.url}}" alt="{{bool.id}}">
+          <div class="box-element product">
+              <h6><strong>Book</strong></h6>
+              <hr>
+              <a class="btn btn-primary" href="{% url 'read' book.id %}">Read</a>
+            </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+  
+      {% for book in books %}
+      {% if book.id not in books_bought %}
         <div class="col-lg-4">
           
             <img class="thumbnail" src="{{book.image.url}}" alt="aa">
@@ -15,22 +30,25 @@
                 <h6><strong>Book</strong></h6>
                 <hr>
                 
-                {% if book.id in books_bought %}
-                <a class="btn btn-outline-success" href="{% url 'read' book.id %}">Read</a>
 
-                {% else %}
-                <a class="btn btn-outline-success" href="{% url 'add_to_cart' "addition" book.id %}">Add to Cart</a>
-                <a class="btn btn-outline-success" href="{% url 'book-detail' book.id %}">View</a>
-                {% endif %}
+                  {% if book.id in order.get_current_cart_items %}
+                    <a class="btn btn-success" href="{% url 'add_to_cart' "addition" book.id %}">Add More</a> 
+                  {% else %}
+                    <a class="btn btn-outline-success" href="{% url 'add_to_cart' "addition" book.id %}">Add To Cart</a> 
+
+                  {% endif %}
+                  <a class="btn btn-outline-secondary" href="{% url 'book-detail' book.id %}">View</a>
                 <h4 style="display:inline-block;float:right">₹{{book.price}}</h4>
             </div>
             <br>
             <br>   
             
         </div>
+        {% endif %}
+
         {% endfor %}
     </div>
   </div>
-    
+    <hr>
 
 {% endblock content %}
